@@ -181,3 +181,29 @@ echo "Top Code: $top_code"
 ## 结果
 
 ![task 07结果](任务答案/task07.png)
+
+# task 08
+
+## 用到的内容
+
+destination=$1
+
+shift
+
+mkdir -p "$destination"
+
+for file in "$@"
+
+do
+    
+   cp "$file" "$destination/"
+
+done
+
+## 学习过程
+
+原内容是for file in $@，在询问codex哪里会引发bug后得知，不加引号的展开会"分词"：$file 若值为 My Report.txt，Shell 会按空格拆成 My 和 Report.txt 两个词，cp 就会找不到文件。"$@" 是处理多参数的黄金写法：它把每个命令行参数都当作独立的整体保留，既支持多个文件，也支持含空格的文件名；$@（不加引号）则会全部拆散。最后总结出看到"带空格出错"先想引号：这是 Shell 脚本最常见的 bug 类型，凡是引用变量/参数的地方都要检查是否加了双引号。
+
+## 结果
+
+![task 08结果](任务答案/task08.png)
