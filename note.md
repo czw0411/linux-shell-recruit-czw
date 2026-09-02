@@ -213,3 +213,7 @@ done
 ## 结果
 
 ![task 09结果](任务答案/task09.png)
+
+# 最终任务汇总
+
+![all task](任务答案/alltask.png)
