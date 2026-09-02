@@ -20,7 +20,7 @@ echo 'LSR-2026-0831' > output/01_project_id.txt   把内容写入文件（重定
 
 ## 结果
 
-![task 01结果](任务答案/task01.png)
+![task 01结果](任务答案/task01.jpg)
 
 # task 02
 
