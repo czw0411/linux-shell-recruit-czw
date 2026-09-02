@@ -129,3 +129,34 @@ awk '{print $2}'   只保留 IP，去掉次数前缀
 ## 结果
 
 ![task 06结果](任务答案/task06.png) 
+
+# task 07
+
+## 用到的内容
+
+在nano中，用以下脚本完成该任务：
+#!/usr/bin/env bash
+
+#没有参数时显示 Usage 并退出
+if [[ $# -ne 1 ]]; then
+    echo "Usage: $0 FILE"
+    exit 1
+fi
+
+FILE="$1"
+
+#文件不存在时报错并退出
+if [[ ! -f "$FILE" ]]; then
+    echo "Error: file not found: $FILE"
+    exit 1
+fi
+
+#统计 ERROR 条数
+total=$(grep -c ERROR "$FILE")
+
+#找出出现最多的错误码
+top_code=$(grep ERROR "$FILE" | grep -o 'code=[0-9]*' | sort | uniq -c | sort -rn | head -1 | sed 's/.*=//')
+
+#输出结果
+echo "Total ERROR: $total"
+echo "Top Code: $top_code"
