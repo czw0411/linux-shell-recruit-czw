@@ -116,9 +116,15 @@ awk '{print $2}'   只保留 IP，去掉次数前缀
 
 ## 用到的命令
 
+./tools/check-project > output/06_stdout.txt   把 stdout（正常输出）重定向到文件
+
+./tools/check-project 2> output/06_stderr.txt   把 stderr（错误输出）重定向到文件
+
+./tools/check-project | tee output/06_tee.txt   stdout 一边显示在终端、一边写入文件
 
 ## 学习过程
 
+用两个通道的方式，编号成1，2，分别重定向，脚本故意把错误信息写到stderr，重定向stdout时ERROR留在终端，需要使用两条通道才能判断哪个文件该有什么。对新内容tee的解释：| tee文件一分为二：tee像三通管，把接到的 stdout复制一份给文件，一份继续输出到终端。第一行之后仍然输出了ERROR，codex给出的解释：> 默认只重定向 stdout：所以执行 命令 > 文件 时，ERROR 行仍会显示在终端，这是正常现象，不是失败。此外，2> 专门重定向 stderr：2> 是"文件描述符 2 重定向"的写法。
 
 ## 结果
 
