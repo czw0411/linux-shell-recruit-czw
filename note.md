@@ -40,5 +40,9 @@ nano answrs02.md   使用nano编辑器解答task02的问答题
 
 ![task 02结果](任务答案/task02.png)
 
+#task 03
+
+##用到的命令
+
 
 
