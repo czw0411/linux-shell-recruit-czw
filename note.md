@@ -20,7 +20,7 @@ echo 'LSR-2026-0831' > output/01_project_id.txt   把内容写入文件（重定
 
 ## 结果
 
-![task 01结果](任务答案/task 01.png)
+![task 01结果](任务答案/task01.png)
 
 # task 02
 
@@ -38,7 +38,7 @@ nano answrs02.md   使用nano编辑器解答task02的问答题
 
 ## 结果
 
-![task 02结果](任务答案/task 02.png)
+![task 02结果](任务答案/task02.png)
 
 
 
