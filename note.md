@@ -42,7 +42,18 @@ nano answrs02.md   使用nano编辑器解答task02的问答题
 
 #task 03
 
-##用到的命令
+## 用到的命令
 
+grep -rIl -E 'TODO|FIXME' workspace/project   递归搜索包含 TODO 或 FIXME 的文件，只列出路径
 
+grep ... | sort   把结果按字典序排序
 
+grep ... | sort > output/03_code_search.txt   把结果写入答案文件
+
+## 学习过程
+
+主要了解grep指令下各个参数的组合和含义，grep -l天然去重：一个文件里有多处匹配也只会被列一次，满足"每个路径只出现一次"；-E扩展正则：TODO|FIXME表示"或"的关系，匹配两者之一；-I忽略二进制文件：只保留普通文本文件，对应题目"普通文件"的要求；grep的输出直接交给sort，无需中间文件，体现"每个命令只做一件事"
+
+## 结果
+
+![task 03结果](任务答案/task03.png)
