@@ -18,6 +18,10 @@ echo 'LSR-2026-0831' > output/01_project_id.txt   把内容写入文件（重定
 
 使用codex协助了解命令以及其作用，并使用GitHub的api在终端中直接将运行结果放入该仓库。该过程对新手来说较为困难，在codex协助下会轻松很多。
 
+## 结果
+
+！[task 01](任务答案/task 01.png)
+
 # task 02
 
 ## 用到的命令
