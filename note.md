@@ -142,9 +142,9 @@ awk '{print $2}'   只保留 IP，去掉次数前缀
 
 if [[ $# -ne 1 ]]; then
     
-    echo "Usage: $0 FILE"
+  echo "Usage: $0 FILE"
     
-    exit 1
+  exit 1
 
 fi
 
@@ -154,9 +154,9 @@ FILE="$1"
 
 if [[ ! -f "$FILE" ]]; then
     
-    echo "Error: file not found: $FILE"
+   echo "Error: file not found: $FILE"
     
-    exit 1
+   exit 1
 
 fi
 
@@ -173,3 +173,11 @@ top_code=$(grep ERROR "$FILE" | grep -o 'code=[0-9]*' | sort | uniq -c | sort -r
 echo "Total ERROR: $total"
 
 echo "Top Code: $top_code"
+
+## 学习过程
+
+用codex完成脚本，并在其指导下分析理解该脚本内容，参数校验、文件校验用 if，统计分析直接复用前面用过的 grep | sort | uniq | head 管道。[[ $# -ne 1 ]] 表示"参数个数不等于 1 时"执行错误处理；$1 读取第一个参数：日志路径来自命令行，不写死在脚本里；[[ ! -f "$FILE" ]] 判断文件存在：-f 检查是否为普通文件，! 取反表示不存在；$(...) 命令替换：把一段命令的输出存进变量，例如 total=$(grep -c ERROR "$FILE")；exit 1 非零退出：错误情况下返回非零状态，让调用方知道脚本失败；正常结束不写 exit，默认返回 0。这道题有很多新内容，在codex协助下才能有较高完成度。
+
+## 结果
+
+![task 07结果](任务答案/task07.png)
