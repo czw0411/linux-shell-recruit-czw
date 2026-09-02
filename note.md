@@ -40,7 +40,7 @@ nano answrs02.md   使用nano编辑器解答task02的问答题
 
 ![task 02结果](任务答案/task02.png)
 
-#task 03
+# task 03
 
 ## 用到的命令
 
@@ -57,3 +57,37 @@ grep ... | sort > output/03_code_search.txt   把结果写入答案文件
 ## 结果
 
 ![task 03结果](任务答案/task03.png)
+
+# task 04
+
+## 用到的命令
+
+grep -c ERROR logs/server.log   统计包含 ERROR 的行数
+
+grep ERROR logs/server.log   筛选 ERROR 行
+
+grep -o 'user=[a-z]*'   只提取 user=xxx 部分
+
+cut -d= -f2   按 = 切分，取第 2 段（用户名）
+
+sort -u   排序并去重
+
+grep -o 'code=[0-9]*'   提取错误码
+
+uniq -c   统计连续相同行出现的次数
+
+sort -rn   按次数降序排列
+
+head -1   取第一行（次数最多）
+
+awk '{print $2}'   只保留第二列（错误码数字）
+
+sed -i 's/code=//' output/04_top_code.txt   删除显示的code=
+
+## 学习过程
+
+有点像task03的拓展内容，也有使用grep下各种参数来解决问题，涉及到更多内容，比如：需要先看格式再写命令，每行日志的结构（字段位置、分隔符）决定了用 cut 还是 awk、取第几列。同时使用codex精简内容，比如sort | uniq这个管道内容，直接等价于sort -u，用于保证输出有序且唯一；以及一个陷阱，第三小题输出内容始终为code=500，使用sed将其清理，最终输出仅为500验证才能通过。
+
+## 结果
+
+![task 04结果](任务答案/task04.png)
